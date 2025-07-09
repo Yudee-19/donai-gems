@@ -1,27 +1,27 @@
 import Commitment from "./components/Commitment";
 import Categories from "./components/Categories";
-import DianoApart from "./components/DianoApart";
+// import DianoApart from "./components/DianoApart";
 import Connect from "./components/Connect";
 import FinestDiamonds from "./components/FinestDiamonds";
 import Testimonial from "./components/Testimonial";
 import Collections from "./components/Collections";
 import ShowGems from "./components/ShowGems";
 import BestGradeSection from "./components/BestGradeSection";
+// import DiamondCard from "./components/DiamondCards";
 
 export default function Home() {
-  return (
-    <div>
-      <BestGradeSection />
-      <FinestDiamonds />
-      <ShowGems />
-      <Categories />
-      <Commitment />
-      <Collections />
-      <DianoApart />
-      <Testimonial />
-      <Connect />
-      
-
-    </div>
-  );
+    return (
+        <div>
+            <BestGradeSection />
+            <FinestDiamonds />
+            <ShowGems />
+            <Categories />
+            <Commitment />
+            <Collections />
+            {/* <DianoApart /> */}
+            {/* <DiamondCard /> */}
+            <Testimonial />
+            <Connect />
+        </div>
+    );
 }
