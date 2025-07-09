@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import imag from "../assets/gem4.jpg";
+import cert1 from "../assets/cert1.jpg";
+import cert2 from "../assets/cert2.jpg";
+import cert3 from "../assets/cert3.jpg";
 
 const DiamondCards = () => {
     return (
@@ -9,7 +11,7 @@ const DiamondCards = () => {
             <div className="w-96 h-96 flex flex-col gap-4 m-auto shrink">
                 <div className="w-96 h-64 bg-zinc-300">
                     <Image
-                        src={imag}
+                        src={cert1}
                         alt="certficate"
                         className="object-cover w-full h-full"
                     />
@@ -28,9 +30,9 @@ const DiamondCards = () => {
                     GIA CERTIFICATE
                 </h2>
                 <div className=" text-zinc-800/80 text-base font-light font-['Open_Sans']">
-                    When purchasing a diamond, we pay close attention to its
-                    grading. The grading certificate serves as the diamond’s
-                    identity cardand to a...
+                    When purchasing a gems, we pay close attention to its
+                    grading. The grading certificate serves as the gems identity
+                    cardand to a...
                     <div className=" text-zinc-800/80 mt-1 text-md font-light font-['Open_Sans'] underline">
                         View All
                     </div>
@@ -40,7 +42,7 @@ const DiamondCards = () => {
             <div className="w-96 h-96 flex flex-col gap-4 m-auto shrink ">
                 <div className="w-96 h-64 bg-zinc-300">
                     <Image
-                        src={imag}
+                        src={cert2}
                         // width={360}
                         // height={10}
                         alt="Big Ring Hand"
@@ -61,9 +63,9 @@ const DiamondCards = () => {
                     IGI-CERTIFICATE
                 </h2>
                 <div className=" text-zinc-800/80 text-base font-light font-['Open_Sans']">
-                    The most authoritative diamond grading institution in the
-                    world is the Gemological Institute of America (GIA). In
-                    addition to GIA, there are...
+                    The most authoritative gems grading institution in the world
+                    is the Gemological Institute of America (GIA). In addition
+                    to GIA, there are...
                     <div className=" text-zinc-800/80 mt-1 text-md font-light font-['Open_Sans'] underline">
                         View All
                     </div>
@@ -72,7 +74,7 @@ const DiamondCards = () => {
             <div className="w-96 h-96 flex flex-col gap-4 m-auto shrink">
                 <div className="w-96 h-64 bg-zinc-300">
                     <Image
-                        src={imag}
+                        src={cert3}
                         // width={360}
                         // height={10}
                         alt="Big Ring Hand"
@@ -93,9 +95,9 @@ const DiamondCards = () => {
                     HRD-CERTIFICATE
                 </h2>
                 <div className=" text-zinc-800/80 text-base font-light font-['Open_Sans']">
-                    The HRD certificate is a diamond grade certificate issued by
-                    the Belgian Diamond High Council. What is the Belgian
-                    Diamond High Council? As...
+                    The HRD certificate is a gems grade certificate issued by
+                    the Belgian Gems High Council. What is the Belgian Gems High
+                    Council? As...
                     <div className=" text-zinc-800/80 mt-1 text-md font-light font-['Open_Sans'] underline">
                         View All
                     </div>

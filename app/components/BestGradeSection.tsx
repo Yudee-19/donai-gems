@@ -30,7 +30,7 @@ const BestGradeSection = () => {
                                 fontFamily: "Playfair Display",
                             }}
                         >
-                            Best Grade Diamond
+                            Best Grade Gems
                             <br />
                             Only at DONAI
                         </h2>
