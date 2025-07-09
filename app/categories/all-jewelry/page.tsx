@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { Open_Sans } from "next/font/google";
 import {
     HiOutlineFilter,
