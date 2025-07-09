@@ -1,6 +1,13 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import Catgem1 from "../../assets/Catgem1.png";
+import Catgem2 from "../../assets/Catgem2.png";
+import Catgem3 from "../../assets/Catgem3.png";
+import Catgem4 from "../../assets/Catgem4.png";
+import Catgem5 from "../../assets/Catgem5.png";
+import Catgem6 from "../../assets/Catgem6.png";
 import { Open_Sans } from "next/font/google";
 import {
     HiOutlineFilter,
@@ -14,54 +21,54 @@ const openSans = Open_Sans({
     weight: ["300", "400", "500", "600", "700"],
 });
 
-// Sample jewelry data
+// Sample jewelry data with imported images
 const jewelryItems = [
     {
         id: 1,
-        name: "Bracelet",
-        image: "/jewelry/bracelet-1.jpg",
+        name: "Emerald Necklace",
+        image: Catgem1,
         price: 25000,
-        category: "bracelet",
+        category: "necklace",
         isFavorite: false,
     },
     {
         id: 2,
-        name: "Ruby Ring",
-        image: "/jewelry/ruby-ring-1.jpg",
+        name: "Diamond Ring",
+        image: Catgem2,
         price: 45000,
         category: "ring",
         isFavorite: false,
     },
     {
         id: 3,
-        name: "Ruby Ring",
-        image: "/jewelry/ruby-ring-2.jpg",
+        name: "Ruby Pendant",
+        image: Catgem3,
         price: 38000,
-        category: "ring",
+        category: "pendant",
         isFavorite: false,
     },
     {
         id: 4,
-        name: "Ruby Ring",
-        image: "/jewelry/ruby-ring-3.jpg",
+        name: "Sapphire Earrings",
+        image: Catgem4,
         price: 52000,
-        category: "ring",
+        category: "earrings",
         isFavorite: false,
     },
     {
         id: 5,
-        name: "Ruby Ring",
-        image: "/jewelry/ruby-ring-4.jpg",
+        name: "Gold Bracelet",
+        image: Catgem5,
         price: 42000,
-        category: "ring",
+        category: "bracelet",
         isFavorite: false,
     },
     {
         id: 6,
-        name: "Ruby Ring",
-        image: "/jewelry/ruby-ring-5.jpg",
+        name: "Pearl Necklace",
+        image: Catgem6,
         price: 48000,
-        category: "ring",
+        category: "necklace",
         isFavorite: false,
     },
 ];
@@ -323,17 +330,19 @@ const Page = () => {
                             className="flex flex-col items-center gap-4 lg:gap-6"
                         >
                             <div className="w-full max-w-96 aspect-square relative bg-gray-100 rounded-lg overflow-hidden group">
-                                {/* Placeholder for jewelry image */}
-                                <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                                    <span className="text-gray-500 text-lg">
-                                        Jewelry Image
-                                    </span>
-                                </div>
+                                {/* Actual jewelry image */}
+                                <Image
+                                    src={item.image}
+                                    alt={item.name}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                />
 
                                 {/* Heart Icon */}
                                 <button
                                     onClick={() => toggleFavorite(item.id)}
-                                    className="absolute top-3 right-3 lg:top-5 lg:right-5 w-6 h-6 bg-white rounded-sm shadow-sm flex items-center justify-center hover:bg-gray-50 transition-colors"
+                                    className="absolute top-3 right-3 lg:top-5 lg:right-5 w-6 h-6 bg-white/80 backdrop-blur-sm rounded-sm shadow-sm flex items-center justify-center hover:bg-white transition-colors z-10"
                                 >
                                     <HiOutlineHeart
                                         className={`w-4 h-4 lg:w-5 lg:h-5 ${
