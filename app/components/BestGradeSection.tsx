@@ -10,7 +10,7 @@ import heroImage from "../assets/hero.png";
 const BestGradeSection = () => {
     return (
         <motion.section
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}

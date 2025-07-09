@@ -7,7 +7,7 @@ import Testimonial from "./components/Testimonial";
 import Collections from "./components/Collections";
 import ShowGems from "./components/ShowGems";
 import BestGradeSection from "./components/BestGradeSection";
-// import DiamondCard from "./components/DiamondCards";
+import DiamondCards from "./components/DiamondCards";
 
 export default function Home() {
     return (
@@ -19,7 +19,7 @@ export default function Home() {
             <Commitment />
             <Collections />
             {/* <DianoApart /> */}
-            {/* <DiamondCard /> */}
+            <DiamondCards />
             <Testimonial />
             <Connect />
         </div>
