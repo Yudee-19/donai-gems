@@ -6,6 +6,13 @@ import { useRouter, usePathname } from "next/navigation";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { Mulish } from "next/font/google";
 import { motion, AnimatePresence } from "framer-motion";
+import allJewelry from "../assets/allJewelery.png";
+import bracelet from "../assets/bracelete.png";
+import fingerRing from "../assets/fingerRing.png";
+import necklace from "../assets/necklace.png";
+import necklaceSet from "../assets/necklaceSet.png";
+import pendants from "../assets/pendants.png";
+import featureImg from "../assets/featureImg.jpg";
 
 const mulish = Mulish({
     subsets: ["latin"],
@@ -26,7 +33,7 @@ const Navbar = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const [showCategoriesDropdown, setShowCategoriesDropdown] = useState(false);
 
-    // Categories data based on your existing components
+    // Categories data with proper images
     const categoryData = {
         filters: [
             { label: "Category", active: true },
@@ -38,22 +45,22 @@ const Navbar = () => {
             {
                 section: 1,
                 categories: [
-                    { name: "All Jewelry", image: "/placeholder-ring.jpg" },
-                    { name: "Finger Rings", image: "/placeholder-ring.jpg" },
+                    { name: "All Jewelry", image: allJewelry },
+                    { name: "Finger Rings", image: fingerRing },
                 ],
             },
             {
                 section: 2,
                 categories: [
-                    { name: "Necklaces", image: "/placeholder-necklace.jpg" },
-                    { name: "Bracelets", image: "/placeholder-bracelet.jpg" },
+                    { name: "Necklaces", image: necklace },
+                    { name: "Bracelets", image: bracelet },
                 ],
             },
             {
                 section: 3,
                 categories: [
-                    { name: "Pendants", image: "/placeholder-pendant.jpg" },
-                    { name: "Necklace Set", image: "/placeholder-set.jpg" },
+                    { name: "Pendants", image: pendants },
+                    { name: "Necklace Set", image: necklaceSet },
                 ],
             },
         ],
@@ -254,8 +261,22 @@ const Navbar = () => {
                                                                         )
                                                                     }
                                                                 >
-                                                                    <div className="w-10 h-10 bg-[#D6C5A0] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                                                                        {/* <div className="w-6 h-6 bg-[#2E2B28] rounded-full"></div> */}
+                                                                    <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                                                                        <Image
+                                                                            src={
+                                                                                category.image
+                                                                            }
+                                                                            alt={
+                                                                                category.name
+                                                                            }
+                                                                            width={
+                                                                                40
+                                                                            }
+                                                                            height={
+                                                                                40
+                                                                            }
+                                                                            className="object-cover w-full h-full"
+                                                                        />
                                                                     </div>
                                                                     <div
                                                                         className={`text-sm font-light ${mulish.className} text-[#2E2B28] group-hover:text-[#D6C5A0] transition-colors duration-200`}
@@ -289,9 +310,17 @@ const Navbar = () => {
                                         transition={{ delay: 0.3 }}
                                         className="flex flex-col justify-end items-start gap-4"
                                     >
-                                        <div className="w-48 h-48 bg-gradient-to-br from-[#D6C5A0] to-[#2E2B28] rounded-lg flex items-center justify-center">
-                                            <div className="text-white text-lg font-light">
-                                                Featured
+                                        <div className="w-48 cursor-pointer h-48 rounded-lg overflow-hidden relative group">
+                                            <Image
+                                                src={featureImg}
+                                                alt="Featured Collection"
+                                                fill
+                                                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                            />
+                                            <div className="absolute inset-0 bg-black/30 flex items-center justify-center transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                                                <div className="text-white text-lg font-light">
+                                                    Featured
+                                                </div>
                                             </div>
                                         </div>
                                         <button
