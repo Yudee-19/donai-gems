@@ -14,7 +14,7 @@ import Popup from "./components/popup";
 
 export default function Home() {
     const [showPopup, setShowPopup] = useState<boolean>(false);
-    const [hasVisited, setHasVisited] = useState<boolean>(false);
+    // const [hasVisited, setHasVisited] = useState<boolean>(false);
 
     useEffect(() => {
         // Get the current date in YYYY-MM-DD format
@@ -39,7 +39,7 @@ export default function Home() {
                 // Mark that popup has been shown in this session
                 sessionStorage.setItem("popupSeenThisSession", "true");
 
-                setHasVisited(true);
+                // setHasVisited(true);
             }, 1000); // 1 second delay
 
             return () => clearTimeout(timer);

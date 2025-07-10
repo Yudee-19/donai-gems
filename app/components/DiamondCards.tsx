@@ -45,47 +45,59 @@ const certificateData = [
 
 const DiamondCards = () => {
     return (
-        <div className="max-w-7xl mx-auto grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-10 lg:mt-15">
-            {certificateData.map((certificate) => (
-                <div
-                    key={certificate.id}
-                    className="w-96 h-96 flex flex-col gap-4 m-auto shrink "
-                >
-                    {/* Certificate Image */}
-                    <div className="w-96 h-64 bg-zinc-300 rounded-lg overflow-hidden">
-                        <Image
-                            src={certificate.image}
-                            alt={certificate.alt}
-                            className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
-                        />
-                    </div>
-
-                    {/* Certificate Title */}
-                    <h2
-                        className={`text-2xl leading-tight font-normal ${playfairDisplay.className}`}
-                        style={{
-                            background:
-                                "linear-gradient(to right, #54330C, #FFDCBB)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                        }}
-                    >
-                        {certificate.title}
-                    </h2>
-
-                    {/* Certificate Description */}
+        <div>
+            <h1
+                className={`text-4xl md:text-5xl text-center font-["Playfair_Display"] mb-2 mt-15`}
+                style={{
+                    background: "linear-gradient(to right, #FFDCBB, #54330C)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                }}
+            >
+                DIAMOND KNOWLEDGES
+            </h1>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-10 lg:mt-15">
+                {certificateData.map((certificate) => (
                     <div
-                        className={`text-zinc-800/80 text-base font-light ${openSans.className}`}
+                        key={certificate.id}
+                        className="w-96 h-96 flex flex-col gap-4 m-auto shrink "
                     >
-                        {certificate.description}
-                        <div
-                            className={`text-zinc-800/80 mt-1 text-md font-light ${openSans.className} underline cursor-pointer hover:text-zinc-800 transition-colors`}
+                        {/* Certificate Image */}
+                        <div className="w-96 h-64 bg-zinc-300 rounded-lg overflow-hidden">
+                            <Image
+                                src={certificate.image}
+                                alt={certificate.alt}
+                                className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
+                            />
+                        </div>
+
+                        {/* Certificate Title */}
+                        <h2
+                            className={`text-2xl leading-tight font-normal ${playfairDisplay.className}`}
+                            style={{
+                                background:
+                                    "linear-gradient(to right, #54330C, #FFDCBB)",
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                            }}
                         >
-                            View All
+                            {certificate.title}
+                        </h2>
+
+                        {/* Certificate Description */}
+                        <div
+                            className={`text-zinc-800/80 text-base font-light ${openSans.className}`}
+                        >
+                            {certificate.description}
+                            <div
+                                className={`text-zinc-800/80 mt-1 text-md font-light ${openSans.className} underline cursor-pointer hover:text-zinc-800 transition-colors`}
+                            >
+                                View All
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 };
