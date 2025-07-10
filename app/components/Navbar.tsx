@@ -14,6 +14,7 @@ import necklaceSet from "../assets/necklaceSet.png";
 import pendants from "../assets/pendants.png";
 import featureImg from "../assets/featureImg.jpg";
 import Link from "next/link";
+import logo from "../assets/Logo.png"; // Assuming you have a logo image
 
 const mulish = Mulish({
     subsets: ["latin"],
@@ -38,7 +39,7 @@ const Navbar = () => {
     const categoryData = {
         filters: [
             { label: "Category", active: true },
-            { label: "Price", active: false },
+            { label: "Gems Design", active: false },
             { label: "Occasion", active: false },
             { label: "Gender", active: false },
         ],
@@ -77,12 +78,12 @@ const Navbar = () => {
     return (
         <div className="bg-white shadow-md sticky top-0 z-50">
             <div
-                className={`max-w-6xl mx-auto flex gap-60 lg:gap-10 p-4 justify-around`}
+                className={`max-w-6xl mx-auto flex gap-60 lg:gap-10 p-4 justify-between items-center ${mulish.className}`}
             >
                 {/* Search Bar */}
-                <div className="hidden lg:block">
+                <div className="hidden lg:block mt-3">
                     <span className="relative ">
-                        <span className="absolute top-0.5 right-5">
+                        <span className="absolute top-0.5 right-5 ">
                             <Image
                                 src="search.svg"
                                 alt="Search Icon"
@@ -95,7 +96,7 @@ const Navbar = () => {
                         <input
                             type="text"
                             placeholder="Search"
-                            className="ml-10 relative border w-full border-[#2e2b287a] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#D6C5A0] transition duration-300"
+                            className=" relative border w-full border-[#2e2b287a] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#D6C5A0] transition duration-300"
                         />
                     </span>
                 </div>
@@ -103,25 +104,25 @@ const Navbar = () => {
                 {/* Logo Section */}
                 <Link href="/">
                     <Image
-                        src="Donai.svg"
+                        src={logo}
                         alt="Donai Gems Logo"
                         width={500}
                         height={200}
                         draggable={false}
-                        className="w-30 lg:w-35 h-auto cursor-pointer "
+                        className="w-30 mt-3 lg:w-40 h-auto cursor-pointer "
                         onClick={() => Router.push("/")}
                     />
                 </Link>
 
                 {/* Right Section */}
-                <div
-                    className={`hidden lg:flex gap-3 py-2 ${mulish.className}`}
-                >
+                <div className={`hidden lg:flex gap-3  ${mulish.className}`}>
                     <button className="px-3 item-center text-md text-[#2E2B28] font-light cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300">
                         Our Collection
                     </button>
-                    <button className="px-3 item-center text-md text-[#2E2B28] shadow-[0px_0px_40px_0px_rgba(255,229,199,0.50)] bg-[#FFE5C7] font-light cursor-pointer hover:scale-110  transition-all duration-300 animate-pulse rounded-md">
+                    <button className="relative overflow-hidden px-3 py-3 item-center text-md text-[#2E2B28] shadow-[0px_0px_40px_0px_rgba(255,229,199,0.50)] bg-[#FFE5C7] font-light cursor-pointer hover:scale-110 transition-all duration-300 rounded-md">
                         Book an Appointment
+                        {/* Shine effect */}
+                        <span className="pointer-events-none absolute top-0 left-[-75%] h-full w-full opacity-60 bg-gradient-to-r from-transparent via-white to-transparent  animate-shine" />
                     </button>
                 </div>
 

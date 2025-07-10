@@ -20,7 +20,7 @@ const InstagramSection = () => {
                         Visit our Instagram for detailed information
                     </h1>
                     <a
-                        href="#"
+                        href="https://www.instagram.com/donaicollection/"
                         className=" my-5 md:px-7 px-3 py-2 rounded-sm shadow-[0px_2px_12px_0px_rgba(0,0,0,0.12)]  outline-1 outline-offset-[-1px] outline-zinc-800 inline-flex justify-center items-center "
                     >
                         <div className="justify-start text-zinc-800 text-base font-normal font-['Open_Sans']">

@@ -25,7 +25,7 @@ const openSans = Open_Sans({
 const jewelryItems = [
     {
         id: 1,
-        name: "Emerald Necklace",
+        name: "Diamond 11 cts gold necklace-chocker with 21.5 ct Pear Zambian Emerald, Certified",
         image: Catgem1,
         price: 25000,
         category: "necklace",
@@ -33,7 +33,7 @@ const jewelryItems = [
     },
     {
         id: 2,
-        name: "Diamond Ring",
+        name: "Certified Turquoise Rectangular Gem Pendant Necklace",
         image: Catgem2,
         price: 45000,
         category: "ring",
@@ -41,7 +41,7 @@ const jewelryItems = [
     },
     {
         id: 3,
-        name: "Ruby Pendant",
+        name: "Certified Red cushion Gemstone Halo Ring",
         image: Catgem3,
         price: 38000,
         category: "pendant",
@@ -49,7 +49,7 @@ const jewelryItems = [
     },
     {
         id: 4,
-        name: "Sapphire Earrings",
+        name: "Certified Blue Sapphire Gemstone Halo Ring",
         image: Catgem4,
         price: 52000,
         category: "earrings",
@@ -57,7 +57,7 @@ const jewelryItems = [
     },
     {
         id: 5,
-        name: "Gold Bracelet",
+        name: "Natural Red unheated high quality and lustre Madagascar ruby 7 cts mounted in a Diamonds gold ring.",
         image: Catgem5,
         price: 42000,
         category: "bracelet",
@@ -65,7 +65,7 @@ const jewelryItems = [
     },
     {
         id: 6,
-        name: "Pearl Necklace",
+        name: "Certified Red Oval Gemstone Ring",
         image: Catgem6,
         price: 48000,
         category: "necklace",
@@ -75,7 +75,7 @@ const jewelryItems = [
 
 // Dropdown options
 const filterOptions = {
-    price: ["$10,000", "$25,000", "$50,000", "$75,000", "$100,000+"],
+    // price: ["$10,000", "$25,000", "$50,000", "$75,000", "$100,000+"], // Removed price filter
     gender: ["Women", "Men", "Unisex"],
     material: ["Diamond", "Ruby", "Emerald", "Sapphire", "Gold", "Silver"],
     category: ["Rings", "Necklaces", "Bracelets", "Earrings", "Pendants"],
@@ -93,7 +93,7 @@ const Page = () => {
     const [selectedFilters, setSelectedFilters] = useState<{
         [key: string]: string[];
     }>({
-        price: [],
+        // price: [], // Remove price from initial state
         gender: [],
         material: [],
         category: [],
@@ -309,7 +309,7 @@ const Page = () => {
                         <button
                             onClick={() =>
                                 setSelectedFilters({
-                                    price: [],
+                                    // price: [],
                                     gender: [],
                                     material: [],
                                     category: [],
@@ -355,7 +355,7 @@ const Page = () => {
                             </div>
 
                             {/* Item Name */}
-                            <h3 className="text-center text-black text-xl lg:text-2xl font-normal">
+                            <h3 className="text-center text-black text-lg lg:text-xl font-normal">
                                 {item.name}
                             </h3>
                         </div>
