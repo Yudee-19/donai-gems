@@ -31,24 +31,27 @@ export default function Home() {
     const [showPopup, setShowPopup] = useState<boolean>(false);
 
     useEffect(() => {
-        // Get the current date in YYYY-MM-DD format
-        const today = new Date().toISOString().split("T")[0];
-
-        // Check if we have stored the last visit date
-        const lastVisitDate = localStorage.getItem("lastPopupDate");
-
-        // Check if user has already seen popup today (during this session)
+        // Get the last popup timestamp from localStorage
+        const lastPopupTimestamp = localStorage.getItem("lastPopupTimestamp");
         const sessionSeen = sessionStorage.getItem("popupSeenThisSession");
+        const now = Date.now();
+
+        // 2 hours in milliseconds
+        const TWO_HOURS = 2 * 60 * 60 * 1000;
 
         // Show popup if:
-        // 1. User hasn't seen it today (different day from last visit)
-        // 2. User hasn't seen it during this browser session
-        if (lastVisitDate !== today && !sessionSeen) {
+        // 1. No timestamp exists, or 2. More than 2 hours have passed since last popup
+        // 3. Not already shown in this session
+        if (
+            (!lastPopupTimestamp ||
+                now - Number(lastPopupTimestamp) > TWO_HOURS) &&
+            !sessionSeen
+        ) {
             const timer = setTimeout(() => {
                 setShowPopup(true);
 
-                // Update localStorage with today's date
-                localStorage.setItem("lastPopupDate", today);
+                // Update localStorage with the current timestamp
+                localStorage.setItem("lastPopupTimestamp", now.toString());
 
                 // Mark that popup has been shown in this session
                 sessionStorage.setItem("popupSeenThisSession", "true");
