@@ -196,7 +196,7 @@ const Navbar = () => {
                     <button className="px-3 item-center text-md text-[#2E2B28] font-light cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300">
                         Our Collection
                     </button>
-                    <button className="relative overflow-hidden px-3 py-3 item-center text-md text-[#2E2B28] shadow-[0px_0px_40px_0px_rgba(255,229,199,0.50)] bg-[#FFE5C7] font-light cursor-pointer hover:scale-110 transition-all duration-300 rounded-md">
+                    <button className="relative overflow-hidden px-3 py-3 item-center text-md text-[#2E2B28]  bg-[#FFE5C7] font-light cursor-pointer hover:scale-110 transition-all duration-300 rounded-md">
                         Book an Appointment
                         {/* Shine effect */}
                         <span className="pointer-events-none absolute top-0 left-[-75%] h-full w-full opacity-60 bg-gradient-to-r from-transparent via-white to-transparent  animate-shine" />
