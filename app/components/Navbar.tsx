@@ -13,6 +13,7 @@ import necklace from "../assets/necklace.png";
 import necklaceSet from "../assets/necklaceSet.png";
 import pendants from "../assets/pendants.png";
 import featureImg from "../assets/featureImg.jpg";
+import Link from "next/link";
 
 const mulish = Mulish({
     subsets: ["latin"],
@@ -100,7 +101,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Logo Section */}
-                <a href="/">
+                <Link href="/">
                     <Image
                         src="Donai.svg"
                         alt="Donai Gems Logo"
@@ -110,7 +111,7 @@ const Navbar = () => {
                         className="w-30 lg:w-35 h-auto cursor-pointer "
                         onClick={() => Router.push("/")}
                     />
-                </a>
+                </Link>
 
                 {/* Right Section */}
                 <div
