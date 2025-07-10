@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
+import { HiOutlineMenu, HiOutlineX, HiChevronDown } from "react-icons/hi";
 import { Mulish } from "next/font/google";
 import { motion, AnimatePresence } from "framer-motion";
 import allJewelry from "../assets/allJewelery.png";
@@ -15,6 +15,7 @@ import pendants from "../assets/pendants.png";
 import featureImg from "../assets/featureImg.jpg";
 import Link from "next/link";
 import logo from "../assets/Logo.png"; // Assuming you have a logo image
+import { SearchIcon } from "lucide-react";
 
 const mulish = Mulish({
     subsets: ["latin"],
@@ -34,6 +35,23 @@ const Navbar = () => {
 
     const [isMenuOpen, setMenuOpen] = useState(false);
     const [showCategoriesDropdown, setShowCategoriesDropdown] = useState(false);
+    const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+    const [selectedLanguage, setSelectedLanguage] = useState("EN");
+
+    // Language options
+    const languages = [
+        { code: "EN", name: "English" },
+        { code: "FR", name: "Français" },
+        { code: "NL", name: "Nederlands" },
+        { code: "DE", name: "Deutsch" },
+        ,
+    ];
+
+    const handleLanguageSelect = (languageCode: string) => {
+        setSelectedLanguage(languageCode);
+        setShowLanguageDropdown(false);
+        // Add your language switching logic here
+    };
 
     // Categories data with proper images
     const categoryData = {
@@ -80,25 +98,84 @@ const Navbar = () => {
             <div
                 className={`max-w-6xl mx-auto flex gap-60 lg:gap-10 p-4 justify-between items-center ${mulish.className}`}
             >
-                {/* Search Bar */}
-                <div className="hidden lg:block mt-3">
-                    <span className="relative ">
-                        <span className="absolute top-0.5 right-5 ">
-                            <Image
-                                src="search.svg"
-                                alt="Search Icon"
-                                width={20}
-                                height={20}
-                                className="text-gray-500 "
+                {/* Search Bar and Language Dropdown */}
+                <div className="hidden lg:flex items-center gap-4 mt-3">
+                    {/* Language Dropdown */}
+                    <div className="relative">
+                        <button
+                            onClick={() =>
+                                setShowLanguageDropdown(!showLanguageDropdown)
+                            }
+                            className="flex items-center gap-1 px-3 py-2 border border-[#2e2b287a] rounded-md hover:bg-gray-50 transition-colors duration-200"
+                        >
+                            <span className="text-sm font-medium text-[#2E2B28]">
+                                {selectedLanguage}
+                            </span>
+                            <HiChevronDown
+                                className={`w-4 h-4 text-[#2E2B28] transition-transform duration-200 ${
+                                    showLanguageDropdown ? "rotate-180" : ""
+                                }`}
                             />
-                        </span>
+                        </button>
 
+                        {/* Language Dropdown Menu */}
+                        <AnimatePresence>
+                            {showLanguageDropdown && (
+                                <motion.div
+                                    initial={{
+                                        opacity: 0,
+                                        y: -10,
+                                        scale: 0.95,
+                                    }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                    transition={{ duration: 0.15 }}
+                                    className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[120px]"
+                                >
+                                    <div className="py-2">
+                                        {languages.map((language) => (
+                                            <button
+                                                key={language?.code}
+                                                onClick={() =>
+                                                    language?.code &&
+                                                    handleLanguageSelect(
+                                                        language.code
+                                                    )
+                                                }
+                                                className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors duration-150 ${
+                                                    selectedLanguage ===
+                                                    language?.code
+                                                        ? "bg-[#D6C5A0]/10 text-[#2E2B28] font-medium"
+                                                        : "text-gray-700"
+                                                }`}
+                                            >
+                                                <div className="flex items-center justify-between">
+                                                    <span>
+                                                        {language?.code}
+                                                    </span>
+                                                    <span className="text-xs text-gray-500">
+                                                        {language?.name}
+                                                    </span>
+                                                </div>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+
+                    {/* Search Bar */}
+                    <div className="relative">
+                        <span className="absolute top-2 right-5">
+                            <SearchIcon size={20} className="text-[#2E2B28]" />
+                        </span>
                         <input
                             type="text"
                             placeholder="Search"
-                            className=" relative border w-full border-[#2e2b287a] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#D6C5A0] transition duration-300"
+                            className="relative border w-full border-[#2e2b287a] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#D6C5A0] transition duration-300"
                         />
-                    </span>
+                    </div>
                 </div>
 
                 {/* Logo Section */}
