@@ -1,11 +1,14 @@
 import React from "react";
 import { Playfair_Display } from "next/font/google";
 import Image from "next/image";
-// import StarIcon from "../assets/star.png";
 import gem1 from "../assets/gem1.jpg";
 import gem2 from "../assets/gem2.jpg";
 import gem3 from "../assets/gem3.jpg";
 import gem4 from "../assets/gem4.jpg";
+import fig1 from "../assets/fig1.jpg";
+import fig2 from "../assets/fig2.jpg";
+import fig3 from "../assets/fig3.jpg";
+import fig4 from "../assets/fig4.jpg";
 
 const playFair = Playfair_Display({
     subsets: ["latin"],
@@ -14,29 +17,34 @@ const playFair = Playfair_Display({
 
 const Gems = [
     {
-        src: gem1,
+        src1: gem1,
+        src2: fig1,
         alt: "GEM 4",
+        title: "Emerald Collection",
     },
     {
-        src: gem2,
+        src1: gem2,
+        src2: fig2,
         alt: "GEM 5",
+        title: "Diamond Series",
     },
     {
-        src: gem3,
-        alt: "GE4 6",
+        src1: gem3,
+        src2: fig3,
+        alt: "GEM 6",
+        title: "Ruby Selection",
     },
     {
-        src: gem4,
+        src1: gem4,
+        src2: fig4,
         alt: "GEM 7",
+        title: "Sapphire Line",
     },
 ];
 
 const Collections = () => {
     return (
         <div className="max-w-7xl mx-auto mt-25 w-full">
-            {/* <Image src={StarIcon} alt="star" width={20} height={20} className="absolute top-395 left-30" />
-        <Image src={StarIcon} alt="star" width={20} height={20} className="absolute top-400 right-30" /> */}
-            {/* <Image src={StarIcon} alt="star" width={25} height={25} className="absolute top-510 right-155" /> */}
             <h1
                 className={`py-10 ${playFair.className} text-center text-5xl`}
                 style={{
@@ -45,21 +53,34 @@ const Collections = () => {
                     WebkitTextFillColor: "transparent",
                 }}
             >
-                Finest Gems Across The City{" "}
+                Finest Gems Across The City
             </h1>
+
             <div className="flex flex-col md:flex-row items-center">
                 {Gems.map((gem, index) => (
                     <div key={index} className="w-1/2 mb-10 px-5">
-                        <Image
-                            src={gem.src}
-                            alt={gem.alt}
-                            width={300}
-                            height={300}
-                            className="w-full object-cover"
-                        />
+                        <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+                            <Image
+                                src={gem.src1}
+                                alt={gem.alt}
+                                width={300}
+                                height={300}
+                                className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                                <Image
+                                    src={gem.src2}
+                                    alt={gem.alt}
+                                    width={300}
+                                    height={300}
+                                    className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div>
+
             <div className="flex justify-center mt-5">
                 <button className="border font-light hover:bg-[#2E2B28] hover:text-[#FFFFFF] duration-300 px-6 py-2">
                     EXPLORE COLLECTION

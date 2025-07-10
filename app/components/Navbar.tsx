@@ -25,9 +25,9 @@ const Navbar = () => {
 
     const NavBarItems = [
         { name: "Home", path: "/" },
+        { name: "Categories", path: "/categories" },
         { name: "About Us", path: "/About" },
         { name: "Contact Us", path: "/Contact" },
-        { name: "Categories", path: "/categories" },
     ];
 
     const [isMenuOpen, setMenuOpen] = useState(false);
@@ -94,20 +94,23 @@ const Navbar = () => {
                         <input
                             type="text"
                             placeholder="Search"
-                            className="ml-10 relative border w-full border-[#2E2B28] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#D6C5A0] transition duration-300"
+                            className="ml-10 relative border w-full border-[#2e2b287a] rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#D6C5A0] transition duration-300"
                         />
                     </span>
                 </div>
 
                 {/* Logo Section */}
-                <Image
-                    src="Donai.svg"
-                    alt="Donai Gems Logo"
-                    width={500}
-                    height={200}
-                    className="w-30 lg:w-35 h-auto cursor-pointer"
-                    onClick={() => Router.push("/")}
-                />
+                <a href="/">
+                    <Image
+                        src="Donai.svg"
+                        alt="Donai Gems Logo"
+                        width={500}
+                        height={200}
+                        draggable={false}
+                        className="w-30 lg:w-35 h-auto cursor-pointer "
+                        onClick={() => Router.push("/")}
+                    />
+                </a>
 
                 {/* Right Section */}
                 <div
@@ -116,7 +119,7 @@ const Navbar = () => {
                     <button className="px-3 item-center text-md text-[#2E2B28] font-light cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300">
                         Our Collection
                     </button>
-                    <button className="px-3 item-center text-md text-[#2E2B28] font-light cursor-pointer hover:scale-105 active:scale-95 transition-all duration-300">
+                    <button className="px-3 item-center text-md text-[#2E2B28] shadow-[0px_0px_40px_0px_rgba(255,229,199,0.50)] bg-[#FFE5C7] font-light cursor-pointer hover:scale-110  transition-all duration-300 animate-pulse rounded-md">
                         Book an Appointment
                     </button>
                 </div>
@@ -129,7 +132,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className="w-full border-t border-[#2E2B28] opacity-80 " />
+            <div className="w-full border-t border-[#2E2B28] opacity-30 " />
 
             <div className="flex flex-row items-center justify-center relative">
                 {/* Middle Section */}
@@ -174,7 +177,7 @@ const Navbar = () => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -10, scale: 0.95 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
-                            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 z-40"
+                            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-0 z-40"
                             onMouseEnter={() => setShowCategoriesDropdown(true)}
                             onMouseLeave={() =>
                                 setShowCategoriesDropdown(false)
@@ -201,7 +204,7 @@ const Navbar = () => {
                                                     }}
                                                     className={`p-2.5 rounded ${
                                                         filter.active
-                                                            ? "bg-[#D6C5A0] shadow-md"
+                                                            ? "bg-[#D6C5A0] px-3 shadow-md"
                                                             : "bg-white hover:bg-gray-50"
                                                     } cursor-pointer transition-all duration-200`}
                                                 >

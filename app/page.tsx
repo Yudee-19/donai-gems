@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { motion, Variants, easeInOut } from "framer-motion";
 import Commitment from "./components/Commitment";
 import Categories from "./components/Categories";
 import Connect from "./components/Connect";
@@ -11,10 +12,23 @@ import ShowGems from "./components/ShowGems";
 import BestGradeSection from "./components/BestGradeSection";
 import DiamondCards from "./components/DiamondCards";
 import Popup from "./components/popup";
+import InstagramSection from "./components/InstagramSection";
+
+// Define your variants with the correct typing
+const variants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.5,
+            ease: easeInOut, // Use the imported easing function instead of a string
+        },
+    },
+};
 
 export default function Home() {
     const [showPopup, setShowPopup] = useState<boolean>(false);
-    // const [hasVisited, setHasVisited] = useState<boolean>(false);
 
     useEffect(() => {
         // Get the current date in YYYY-MM-DD format
@@ -38,13 +52,11 @@ export default function Home() {
 
                 // Mark that popup has been shown in this session
                 sessionStorage.setItem("popupSeenThisSession", "true");
-
-                // setHasVisited(true);
             }, 1000); // 1 second delay
 
             return () => clearTimeout(timer);
         }
-    }, []); // Empty dependency array means this runs once on mount
+    }, []);
 
     const handleClosePopup = () => {
         setShowPopup(false);
@@ -55,16 +67,90 @@ export default function Home() {
             {/* Conditionally render the Popup component */}
             {showPopup && <Popup onClose={handleClosePopup} />}
 
+            {/* Each section with its own independent animation */}
+
             <BestGradeSection />
-            <FinestDiamonds />
-            <ShowGems />
-            <Categories />
-            <Commitment />
-            <Collections />
-            {/* <DianoApart /> */}
-            <DiamondCards />
-            <Testimonial />
-            <Connect />
+
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={variants}
+            >
+                <FinestDiamonds />
+            </motion.div>
+
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={variants}
+            >
+                <ShowGems />
+            </motion.div>
+
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={variants}
+            >
+                <Categories />
+            </motion.div>
+
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={variants}
+            >
+                <Commitment />
+            </motion.div>
+
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={variants}
+            >
+                <Collections />
+            </motion.div>
+
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={variants}
+            >
+                <DiamondCards />
+            </motion.div>
+
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={variants}
+            >
+                <Testimonial />
+            </motion.div>
+
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={variants}
+            >
+                <InstagramSection />
+            </motion.div>
+
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={variants}
+            >
+                <Connect />
+            </motion.div>
         </div>
     );
 }
